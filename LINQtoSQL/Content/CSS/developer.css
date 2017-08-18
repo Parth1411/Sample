@@ -1,0 +1,32 @@
+﻿html, body
+{
+  /*font-family: Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;*/
+}
+
+.cursordefault
+{
+    cursor: default;
+}
+.col-margin-left-3
+{
+    margin-left: 3.33333333%;
+}
+.col-margin-left-18
+{
+    margin-left: 18.33333333%;
+}
+.padRight10
+{
+    padding-right: 10px;
+}
+.deleteall
+{
+    background: url(../Images/deleteall.jpg) no-repeat 0 0;
+    border: 0;
+    height: 20px;
+    width: 20px;
+}

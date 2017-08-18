@@ -1,0 +1,68 @@
+﻿@model List<MVC.Models.Customer>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+<p>
+    @Html.ActionLink("Add Customer", "AddUpdate", "AddUpdate")
+</p>
+<div class="table-responsive @(Model.Count > 0 ? "show" : "hidden")">
+    <table class="table table-bordered">
+        <tr class="bg-primary">
+            <th>First Name
+            </th>
+            <th>Last Name
+            </th>
+            <th>Birth Date
+            </th>
+            <th>Email
+            </th>
+            <th>Address
+            </th>
+            <th>Edit | Delete
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @String.Format("{0:dd/MM/yyyy}", item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "AddUpdate", "AddUpdate", new { id = item.CustomerID }, null) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID }, new { onclick = string.Format("return confirm('Are you sure you want to delete {0}?');", item.FirstName + " " + item.LastName) })
+                </td>
+            </tr>
+        }
+
+        @if (TempData["Message"] != null)
+        {
+            <script type="text/javascript">
+                alert('@TempData["Message"]');
+            </script>
+        }
+    </table>
+</div>
+<div class="@(Model.Count > 0 ? "hidden" : "show alert alert-danger fade in")">
+    <strong>Sorry! </strong>No Record(s) found.
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#aSample').parent().addClass('active');
+    });
+</script>

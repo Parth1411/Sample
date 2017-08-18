@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="EFDBFirst.Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <%--CSS From Google CDN--%>
+    <%--<link id="Link1" rel="stylesheet" runat="server" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />--%>
+    <%--CSS From Local Source--%>
+    <link runat="server" href="~/Content/CSS/bootstrap.css" rel="stylesheet" />
+    <link runat="server" href="~/Content/CSS/developer.css" rel="stylesheet" />
+
+    <%--Jquery and Javascript From Google CDN--%>
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>--%>
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>--%>
+
+    <%--Jquery and Javascript From Local Source--%>
+    <script src="Content/Script/jquery-3.1.1.js" type="text/javascript"></script>
+    <script src="Content/Script/bootstrap.js" type="text/javascript"></script>
+    <script src="Content/Script/developer.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="aHome" class="navbar-brand" href="CustomerWithSP.aspx">Home</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a id="aCustomerWithSP" href="CustomerWithSP.aspx">Customer With SP</a></li>
+                        <li><a id="aCustomerWithoutSP" href="CustomerWithoutSP.aspx">Customer Without SP</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $('.nav li.active').removeClass('active');
+    </script>
+</body>
+</html>

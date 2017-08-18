@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCountry">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountryResult" type="tns:ArrayOfCountryBAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCountryBAL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CountryBAL" nillable="true" type="tns:CountryBAL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CountryBAL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerResult" type="tns:ArrayOfCustomerBAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomerBAL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomerBAL" nillable="true" type="tns:CustomerBAL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomerBAL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCustomerByAjax">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerByAjaxResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertUpdateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:CustomerBAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertUpdateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertUpdateCustomerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCustomerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountry" />
+  </wsdl:message>
+  <wsdl:message name="GetCountrySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByAjaxSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerByAjax" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByAjaxSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerByAjaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertUpdateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertUpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="InsertUpdateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertUpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CustomerServiceSoap">
+    <wsdl:operation name="GetCountry">
+      <wsdl:input message="tns:GetCountrySoapIn" />
+      <wsdl:output message="tns:GetCountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input message="tns:GetCustomerSoapIn" />
+      <wsdl:output message="tns:GetCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByAjax">
+      <wsdl:input message="tns:GetCustomerByAjaxSoapIn" />
+      <wsdl:output message="tns:GetCustomerByAjaxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateCustomer">
+      <wsdl:input message="tns:InsertUpdateCustomerSoapIn" />
+      <wsdl:output message="tns:InsertUpdateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input message="tns:DeleteCustomerSoapIn" />
+      <wsdl:output message="tns:DeleteCustomerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerServiceSoap" type="tns:CustomerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCountry">
+      <soap:operation soapAction="http://tempuri.org/GetCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByAjax">
+      <soap:operation soapAction="http://tempuri.org/GetCustomerByAjax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/InsertUpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomerServiceSoap12" type="tns:CustomerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCountry">
+      <soap12:operation soapAction="http://tempuri.org/GetCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByAjax">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomerByAjax" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateCustomer">
+      <soap12:operation soapAction="http://tempuri.org/InsertUpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerService">
+    <wsdl:port name="CustomerServiceSoap" binding="tns:CustomerServiceSoap">
+      <soap:address location="http://localhost:63976/CustomerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomerServiceSoap12" binding="tns:CustomerServiceSoap12">
+      <soap12:address location="http://localhost:63976/CustomerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
